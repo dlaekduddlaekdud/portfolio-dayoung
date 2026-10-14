@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임다영 이력서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== 페이지 설정 (Chrome 인쇄 기준) ===== */
+  @page {
+    size: A4;
+    margin: 12.7mm;
+    @bottom-left {
+      content: "임다영 · 이력서";
+      font-family: "Noto Sans KR", "Noto Sans CJK KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 7pt; color: #9aa3b2;
+    }
+    @bottom-right {
+      content: counter(page) " / " counter(pages);
+      font-family: "Noto Sans KR", "Noto Sans CJK KR", "Apple SD Gothic Neo", sans-serif;
+      font-size: 7pt; color: #9aa3b2;
+    }
+  }
+
+  :root {
+    --ink: #1f2937;
+    --ink-soft: #374151;
+    --muted: #6b7280;
+    --label: #596579;
+    --navy: #2d3a52;
+    --line: #e5e7eb;
+    --bg: #f3f4f6;
+    --tag-bg: #fcf1d8;
+    --tag-ink: #7a5b1c;
+    --code-bg: #f8ece8;
+    --code-ink: #b4462c;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font-family: "Noto Sans KR", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: var(--ink);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    background: #fff;
+  }
+  @media screen {
+    body { max-width: 210mm; margin: 0 auto; padding: 12.7mm; }
+  }
+
+  p { margin: 0 0 5pt; }
+  strong { font-weight: 700; }
+
+  /* ===== 머리 ===== */
+  .cover-name { display: flex; align-items: baseline; gap: 10pt; margin-bottom: 5pt; }
+  .cover-name .name { font-size: 24pt; font-weight: 500; line-height: 1.2; }
+  .cover-name .sub { font-size: 10.5pt; color: var(--muted); }
+  .contact { display: flex; flex-wrap: wrap; column-gap: 14pt; row-gap: 3pt; font-size: 9pt; color: var(--muted); margin-bottom: 10pt; }
+  .contact b { color: var(--ink); font-weight: 700; margin-right: 3pt; }
+  .contact span { margin-right: 0; }
+  .hero { background: var(--bg); border-left: 3px solid var(--navy); padding: 9pt 13pt; }
+  .hero .headline { font-size: 11pt; font-weight: 700; margin-bottom: 4pt; }
+  .hero p { font-size: 9.5pt; margin: 0; }
+
+  /* ===== 섹션 라벨 ===== */
+  .section-label {
+    font-size: 8.5pt; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--label);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3pt; margin: 13pt 0 6pt;
+    break-after: avoid;
+  }
+
+  /* ===== 기술 ===== */
+  table { width: 100%; border-collapse: collapse; }
+  table.skills td { padding: 3pt 0; font-size: 9pt; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.skills td:first-child { width: 30mm; font-weight: 700; color: var(--navy); }
+
+  /* ===== 프로젝트 ===== */
+  .proj { padding: 0 0 16pt; margin-bottom: 18pt; border-bottom: 1px solid var(--line); }
+  .proj:last-child { border-bottom: none; }
+  .proj h3 {
+    font-size: 12pt; font-weight: 700; margin: 0 0 7pt;
+    padding: 1pt 0 1pt 9pt; border-left: 3px solid var(--navy);
+    break-after: avoid;
+  }
+  .proj .desc { font-size: 10pt; font-weight: 500; line-height: 1.65; color: var(--ink-soft); margin: 0 0 8pt; }
+  .proj .meta { font-size: 9pt; line-height: 1.65; color: var(--muted); margin-bottom: 6pt; }
+  .proj .meta b { color: var(--ink-soft); font-weight: 700; }
+  .stack-tag {
+    display: inline-block; background: var(--tag-bg); color: var(--tag-ink);
+    font-size: 8.5pt; line-height: 1.7; padding: 3pt 7pt; border-radius: 2px; margin-bottom: 6pt;
+  }
+  .link { font-size: 9pt; line-height: 1.65; color: var(--muted); margin-bottom: 10pt; }
+  .link a {
+    color: var(--navy); font-weight: 700; text-decoration: none;
+    border-bottom: 0.5pt solid #b8c0cc;
+  }
+  .contact a { color: var(--muted); text-decoration: none; }
+  .sep { color: #b8c0cc; padding: 0 3pt; }
+
+  /* ===== 소제목 + 불릿 ===== */
+  .point {
+    font-size: 10pt; font-weight: 700; color: var(--navy);
+    margin: 12pt 0 5pt; line-height: 1.6; break-after: avoid;
+  }
+  .point + ul { margin-top: 0; }
+
+  ul { margin: 4pt 0 0; padding-left: 15pt; font-size: 9.5pt; line-height: 1.7; }
+  li { margin: 5pt 0; padding-left: 2pt; }
+  li::marker { color: var(--ink); font-size: 8.5pt; }
+
+  code {
+    font-family: "Menlo", "D2Coding", "Noto Sans Mono CJK KR", "Consolas", monospace;
+    font-size: 8.5pt; background: var(--code-bg); color: var(--code-ink);
+    padding: 0 3pt; border-radius: 2px;
+  }
+
+  /* ===== 경험·학력·자격 ===== */
+  .exp-head { font-size: 11pt; font-weight: 700; }
+  .exp-head .exp-sub { font-weight: 400; color: var(--muted); font-size: 10pt; }
+  table.plain th { width: 30mm; text-align: left; color: var(--label); font-weight: 700; font-size: 9pt; padding: 3pt 0; vertical-align: top; }
+  table.plain td { font-size: 9.5pt; padding: 3pt 0; }
+  .keep { break-inside: avoid; }
+
+  /* 프로젝트 도입부가 앞 페이지에 홀로 남지 않도록 묶는다. */
+  .project-intro { break-inside: avoid; break-after: avoid; }
+  li { break-inside: avoid; }
+  p, li { orphans: 2; widows: 2; }
+  @media print {
+    .print-page-start { break-before: page; }
+    .proj { padding-bottom: 10pt; margin-bottom: 12pt; }
+    .proj .desc { margin-bottom: 6pt; }
+    .proj .meta { margin-bottom: 5pt; }
+    .point { margin-top: 9pt; margin-bottom: 4pt; }
+    ul { line-height: 1.55; }
+    li { margin-top: 3pt; margin-bottom: 3pt; }
+  }
+
+  /* 소개 박스 안에서 제품 개선 경험과 서버 문제 해결 경험을 나눠 읽도록 한다. */
+  .hero { padding: 12pt 15pt; }
+  .hero .headline { margin-bottom: 9pt; }
+  .hero p { line-height: 1.75; }
+  .hero p + p { margin-top: 8pt; }
+
+  /* 상단 정보의 계층이 보이도록 간격을 구분한다. */
+  .resume-top .cover-name { gap: 13pt; margin-bottom: 12pt; }
+  .resume-top .contact {
+    display: flex; flex-wrap: wrap;
+    column-gap: 16pt; row-gap: 6pt;
+    line-height: 1.6; margin-bottom: 16pt;
+  }
+  .resume-top .contact span:last-child { flex-basis: 100%; }
+  .resume-top .hero { margin-bottom: 17pt; }
+  .resume-top .section-label { margin-top: 0; margin-bottom: 7pt; }
+  .resume-top table.skills td { padding-top: 5pt; padding-bottom: 5pt; line-height: 1.65; }
+
+  /* 본문과 보조 정보도 확대 없이 읽을 수 있도록 크기를 높인다. */
+  body { font-size: 10.5pt; }
+  .contact, .resume-top .contact { font-size: 10pt; }
+  .hero .headline { font-size: 12pt; }
+  .hero p { font-size: 10.5pt; }
+  .section-label { font-size: 9.5pt; }
+  table.skills td { font-size: 10pt; }
+  .proj h3 { font-size: 13pt; }
+  .proj .desc, .point { font-size: 10.5pt; }
+  .proj .meta, .link { font-size: 10pt; }
+  .stack-tag, code { font-size: 9.5pt; }
+  ul { font-size: 10.5pt; }
+  .exp-head { font-size: 12pt; }
+  .exp-head .exp-sub, table.plain th { font-size: 10pt; }
+  table.plain td { font-size: 10.5pt; }
+  .resume-top + .section-label { margin-top: 25pt; }
+
+  /* 확대된 글자 크기를 유지하고 첫 장의 인쇄 여백만 압축한다. */
+  @media print {
+    .resume-top .cover-name { margin-bottom: 7pt; }
+    .resume-top .contact { row-gap: 3pt; margin-bottom: 10pt; }
+    .resume-top .hero { padding: 8pt 12pt; margin-bottom: 10pt; }
+    .resume-top .hero .headline { margin-bottom: 6pt; }
+    .resume-top .hero p { line-height: 1.5; }
+    .resume-top .hero p + p { margin-top: 5pt; }
+    .resume-top .section-label { margin-bottom: 4pt; }
+    .resume-top table.skills td { padding-top: 3pt; padding-bottom: 3pt; line-height: 1.5; }
+    .resume-top + .section-label { margin-top: 15pt; margin-bottom: 6pt; }
+    .academy-project .point { margin-top: 7pt; margin-bottom: 3pt; }
+    .academy-project ul { line-height: 1.5; }
+    .academy-project li { margin-top: 2pt; margin-bottom: 2pt; }
+    .academy-project .link { margin-bottom: 6pt; }
+    .academy-project { padding-bottom: 5pt; margin-bottom: 0; }
+  }
+
+  /* 첫 장의 남은 공간을 각 구간에 나눠 두 번째 장과 밀도를 맞춘다. */
+  @media print {
+    .resume-top .hero { padding-top: 11pt; padding-bottom: 11pt; margin-bottom: 12pt; }
+    .resume-top table.skills td { padding-top: 4pt; padding-bottom: 4pt; }
+    .resume-top + .section-label { margin-top: 20pt; margin-bottom: 8pt; }
+    .academy-project .point { margin-top: 12pt; margin-bottom: 5pt; }
+    .academy-project ul { line-height: 1.55; }
+    .academy-project li { margin-top: 3pt; margin-bottom: 3pt; }
+    .academy-project .link { margin-bottom: 8pt; }
+    .academy-project { padding-bottom: 8pt; }
+  }
+
+
+/* 연구 프로젝트의 결과가 다음 장에 홀로 남지 않도록 시작점을 고정한다. */
+@media print {
+ .research-project { break-before:page; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ================= 머리 ================= -->
+<header class="resume-top">
+<div class="cover-name"><span class="name">임다영</span><span class="sub">백엔드 개발자</span></div>
+<div class="contact">
+  <span><b>Email</b>· <a href="mailto:imlimdayoung@gmail.com">imlimdayoung@gmail.com</a></span>
+  <span><b>GitHub</b>· <a href="https://github.com/dlaekduddlaekdud">github.com/dlaekduddlaekdud</a></span>
+  <span><b>Portfolio</b>· <a href="https://dlaekduddlaekdud.github.io/portfolio-dayoung/">dlaekduddlaekdud.github.io/portfolio-dayoung</a></span>
+</div>
+
+<div class="hero">
+  <div class="headline">업무 규칙을 도메인 모델과 트랜잭션 경계로 구현하는 백엔드 개발자</div>
+  <p>학원 조교·총괄로 약 4년간 겪은 정산 문제를 직접 개발한 도구로 해결해, 동일한 조교 23명분의 정산 작업을 약 2시간에서 20분으로 줄였습니다.</p>
+  <p>Java/Spring 구매 시스템에서는 부분입고·분할송장·월 마감·사후 정정 규칙을 모델링했습니다. 교착과 잠금 시간 초과의 원인을 추적해 잠금 방식과 트랜잭션 경계를 수정하고, 실제 MySQL 기반 테스트로 검증했습니다.</p>
+</div>
+
+<!-- ================= 기술 ================= -->
+<div class="keep">
+  <div class="section-label">기술</div>
+  <table class="skills">
+    <tr><td>Backend</td><td>Java 21 · Spring Boot · Spring Security · JPA · Validation</td></tr>
+    <tr><td>Database</td><td>MySQL 8.4 · PostgreSQL · Flyway · SQL</td></tr>
+    <tr><td>Test / Infra</td><td>JUnit 5 · MockMvc · Testcontainers · Gradle · Docker Compose · GitHub Actions · OpenAPI</td></tr>
+    <tr><td>Additional</td><td>TypeScript · Next.js · React · Supabase · Vitest · Playwright · Python</td></tr>
+  </table>
+</div>
+
+</header>
+
+<!-- ================= 주요 프로젝트 ================= -->
+<div class="section-label">주요 프로젝트</div>
+
+<div class="proj academy-project">
+  <div class="project-intro">
+  <h3>학원 근무·급여 정산 시스템</h3>
+  <div class="desc">메신저·수기 기반 정산을 시급 이력과 계산 근거가 보존되는 도구로 전환</div>
+  <div class="meta"><b>2026.03-2026.09</b> · 3월 개발 · 4월 업무 적용 · 5월 퇴사로 종료 · 8~9월 후속 개선 · 1인 개발</div>
+  <span class="stack-tag">PostgreSQL · RLS · Supabase Auth · Next.js 16 · TypeScript · Vitest · Playwright</span>
+  <div class="link">GitHub <a href="https://github.com/dlaekduddlaekdud/academy-worklog-payroll">dlaekduddlaekdud/academy-worklog-payroll</a></div>
+  </div>
+
+  <div class="point">실제 정산 적용 — 동일한 조교 23명분 약 2시간 → 20분 (도구 작업 기준)</div>
+  <ul>
+    <li>직접 개발한 도구를 이사님께 시연해 도입하고, 운영자인 본인이 기존 방식으로 받은 기록을 확인·입력</li>
+    <li>4월 한 달간 기존 수기 계산과 병행 검증해 금액 일치를 확인하고 해당 월 정산에 적용</li>
+  </ul>
+
+  <div class="point">계산 근거 보존과 확정 처리</div>
+  <ul>
+    <li>4월 적용 당시: 시급을 적용 시작일 기준 이력으로 쌓고, 제출 시 근무일에 유효한 시급·금액을 근무 기록에 스냅샷으로 저장</li>
+    <li>8월 후속 개선: 대기 기록 검사·집계·확정을 PostgreSQL 함수 하나로 옮겨 단일 트랜잭션으로 처리</li>
+    <li>8월 후속 점검: 레이어별 규칙을 대조해 수정·삭제 경로의 확정 월 보호 누락 발견, 트리거 복원 및 변경된 행이 없어도 성공으로 응답하던 문제 수정</li>
+    <li>테스트 27개 (단위 · RPC 통합 · E2E)</li>
+  </ul>
+
+  <div class="point">운영 후 검토 — 학원 근무 경험자 5명 인터뷰</div>
+  <ul>
+    <li>자동 기록과 추가 근무 신청 창구가 필요하다는 의견을 확인하고 후속 개선 과제로 정리 (미구현)</li>
+  </ul>
+</div>
+
+<div class="proj print-page-start">
+  <div class="project-intro">
+  <h3>구매·월 마감 관리 시스템</h3>
+  <div class="desc">부분입고·분할송장부터 월 마감·사후 정정까지 구현한 구매 업무 백엔드</div>
+  <div class="meta"><b>2026.08-2026.09</b> · 개인 프로젝트 · 도메인 설계 · API · DB · 테스트 · CI</div>
+  <span class="stack-tag">Java 21 · Spring Boot 4.1 · Spring Security · JPA · MySQL 8.4 · Flyway · Testcontainers · GitHub Actions</span>
+  <div class="link">GitHub <a href="https://github.com/dlaekduddlaekdud/procurement-system">dlaekduddlaekdud/procurement-system</a></div>
+  </div>
+
+  <div class="point">라인 단위 대사와 월 마감</div>
+  <ul>
+    <li>입고·송장 라인이 발주 라인을 참조해 누적값으로 대사, 추가 입고 시 보류 건 재대사</li>
+    <li>마감 상태와 실행 이력을 분리해 실패 시 집계는 롤백, 실패 원인은 별도 트랜잭션에 보존</li>
+    <li>마감 후에는 원본 수정 대신 REVERSAL·CORRECTION 행 추가, append-only 감사 로그 기록</li>
+  </ul>
+
+  <div class="point">잠금 문제 2건 원인 추적</div>
+  <ul>
+    <li>등록 시 마감 확인이 배타 잠금을 걸어 교착이 생기는 구조 → 공유 잠금 읽기로 분리, 동시 입고 테스트로 확인</li>
+    <li>기간 행 등록을 별도 트랜잭션으로 나눠 재실행 시 LockTimeoutException → 같은 트랜잭션으로 되돌려 해결</li>
+    <li>Testcontainers MySQL 기반 테스트 139개, 잠금 범위 등 핵심 설계 판단을 ADR 4건으로 기록</li>
+  </ul>
+</div>
+
+<div class="proj">
+  <div class="project-intro">
+  <h3>Study Gather v1 → v2</h3>
+  <div class="desc">팀 프로젝트의 API 통합 문제를 자동 검증 구조로 개선한 개인 리빌드</div>
+  <div class="meta"><b>v1 2025.10-2025.11</b> · 5인 팀(백엔드 3 · 프론트 2), 백엔드 담당 &nbsp;/&nbsp; <b>v2 2026.08</b> · 1인 리빌드</div>
+  <span class="stack-tag">Java 21 · Spring Boot 4.1 · Spring Security · JPA · MySQL 8.4 · Flyway · React · TypeScript</span>
+  <div class="link">GitHub <a href="https://github.com/dlaekduddlaekdud/study-gather-v2">dlaekduddlaekdud/study-gather-v2</a> · Live <a href="https://study-gather-v2.ekdud0112.workers.dev">study-gather-v2.ekdud0112.workers.dev</a></div>
+  </div>
+
+  <div class="point">API 명세·생성 타입의 변경 누락을 CI에서 차단</div>
+  <ul>
+    <li>실행 중인 백엔드에서 OpenAPI 명세·프론트 타입을 재생성해 커밋된 파일과 다르면 CI 실패</li>
+    <li>ddl-auto=update를 Flyway + validate로 교체</li>
+  </ul>
+
+  <div class="point">마지막 한 자리 동시 승인 — 20건 × 20회, 매회 1건만 성립</div>
+  <ul>
+    <li>신청 행 → 스터디 행 순서로 비관적 잠금, 매회 승인 신청 1건과 개설자 포함 승인 인원·멤버 수 2명(정원)을 DB에서 확인</li>
+    <li>중간 실패를 주입해 여러 테이블이 함께 이전 상태로 돌아오는지 실제 DB에서 확인</li>
+  </ul>
+</div>
+
+<div class="proj research-project">
+  <div class="project-intro">
+  <h3>연구 데이터 검증 대시보드</h3>
+  <div class="desc">Edge AI 칼만 필터 2인 공동 졸업연구에서 평가 지표·검증 파이프라인·대시보드 담당</div>
+  <div class="meta"><b>2026.03-2026.08</b> · 공동연구자는 모델 설계·양자화·펌웨어 통합 담당</div>
+  <span class="stack-tag">Python · Next.js 15 · TypeScript · Vitest</span>
+  <div class="link">GitHub <a href="https://github.com/dlaekduddlaekdud/edge-ai-kalman-dashboard">dlaekduddlaekdud/edge-ai-kalman-dashboard</a> · Live <a href="https://edge-ai-kalman-dashboard.vercel.app">edge-ai-kalman-dashboard.vercel.app</a></div>
+  </div>
+  <ul>
+    <li>실험 CSV를 필수 헤더 기준으로 판별, 지표 계산·판정을 테스트 53개로 고정</li>
+    <li>논문 정의·코드·실측 교차 확인으로 <strong>오류 3건 발견·정정</strong> (940nm 신호 강도 해석 역전 등)</li>
+  </ul>
+</div>
+
+<!-- ================= 경력 ================= -->
+<div class="keep">
+  <div class="section-label">현장 운영 경험</div>
+  <div class="exp-head">베토영어학원 <span class="exp-sub">| 조교 → 조교 총괄 · 2021.12-2026.05</span></div>
+  <ul>
+    <li>마지막 기준 조교 23명의 스케줄·근무 기록·월별 급여 정산 검토 담당</li>
+    <li>담당 조교가 바뀌어도 학생 이력이 이어지도록 학생관리 스프레드시트 항목·기준 재정비</li>
+    <li>고등관 학생 약 250명 단어시험 개별 테스트 전담</li>
+    <li>신규 조교 약 30명 인수인계, Notion 업무 매뉴얼 작성 (퇴사 후에도 사용)</li>
+  </ul>
+</div>
+
+<!-- ================= 학력·자격 ================= -->
+<div class="keep">
+  <div class="section-label">학력 · 자격 · 수상</div>
+  <table class="plain">
+    <tr><th>학력</th><td>한국외국어대학교 정보통신공학과 (2022.03 ~ 2027.02 졸업예정)</td></tr>
+    <tr><th>자격</th><td>SQLD (2025.12) · 정보처리기사 (2026.09) · TOEIC Speaking IH (140)</td></tr>
+    <tr><th>수상</th><td>AdvICE 학회 TASKCARD 프로젝트 학과 장려상 (2024.11) - Flask 기반 4인 팀, 백엔드 담당</td></tr>
+  </table>
+</div>
+
+</body>
+</html>
